@@ -1,0 +1,56 @@
+/* Shared application navigation. */
+:root{--shell-header:64px;--shell-sidebar:184px;--shell-blue:#2874ff}
+header.app-header{height:var(--shell-header);padding:0;position:sticky;top:0;z-index:30;display:flex;align-items:stretch;background:linear-gradient(108deg,#fbfcff 0%,#f0f5ff 65%,#e4edff 100%);border:0;box-shadow:0 2px 7px #162e5712}
+.app-header .original-logo{width:var(--shell-sidebar);min-width:var(--shell-sidebar);padding:12px 20px;display:flex;justify-content:center;align-items:center}
+.app-header .original-logo img{width:142px;max-height:38px;object-fit:contain}
+.app-header .shell-topnav{display:flex;flex:1;min-width:0;align-items:stretch;gap:0}
+.shell-topitem{position:relative;display:flex;flex:1;max-width:116px;min-width:62px}
+.shell-topbutton{width:100%;height:64px;padding:0 9px;border:0;background:transparent;color:#2a2d33;font:500 14px 'Microsoft YaHei',sans-serif;display:flex;justify-content:center;align-items:center;gap:7px;white-space:nowrap;cursor:pointer}
+.shell-topitem.selected{background:linear-gradient(145deg,#f1f6ff,#e3edff)}
+.shell-topitem.selected:after{display:none}
+.shell-topbutton:hover,.shell-topbutton:focus-visible{background:#e5eeff;color:#2366d9}
+.shell-caret{width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;opacity:.85;margin-top:4px}
+.shell-topdropdown{position:absolute;top:calc(100% - 1px);left:0;min-width:176px;max-height:70vh;overflow:auto;display:none;background:#fff;border:1px solid #e6ebf4;padding:7px;border-radius:7px;box-shadow:0 8px 22px #263a5b1a;z-index:40}
+.shell-topitem:hover .shell-topdropdown,.shell-topitem:focus-within .shell-topdropdown{display:block}
+.shell-topdropdown button,.shell-topdropdown a{display:block;width:100%;padding:9px 12px;text-align:left;border:0;border-radius:4px;background:none;color:#4e5969;font:14px 'Microsoft YaHei',sans-serif;text-decoration:none;white-space:nowrap;cursor:pointer}
+.shell-topdropdown button:hover,.shell-topdropdown a:hover{background:#edf3ff;color:#2874ff}
+.shell-header-tools{display:flex;align-items:center;gap:17px;padding:0 20px 0 14px;flex-shrink:0;color:#8e98a6}
+.shell-panorama svg{width:15px;height:15px;flex-shrink:0}
+.shell-panorama{display:flex;align-items:center;gap:6px;white-space:nowrap;color:#303b4c;font-size:14px}
+.shell-tool{position:relative;background:none;border:0;padding:0;color:#8b96a4;display:flex;align-items:center;justify-content:center;min-width:26px;min-height:32px}
+.shell-tool svg{width:19px;height:19px}
+.shell-notification-count{position:absolute;top:-7px;right:-11px;font-size:11px;line-height:16px;height:16px;min-width:21px;border-radius:8px;background:#ff535b;color:white;text-align:center;padding:0 3px}
+.shell-profile{display:flex;align-items:center;gap:7px;color:#a4adba}
+.shell-profile svg{width:34px;height:34px;border-radius:50%}
+.shell-profile .shell-caret{border-width:3px}
+.layout{min-height:calc(100vh - var(--shell-header))}
+aside.app-sidebar{width:var(--shell-sidebar);min-width:var(--shell-sidebar);height:calc(100vh - var(--shell-header));position:sticky;top:var(--shell-header);align-self:flex-start;display:block;padding:0;overflow:auto;background:white;border-right:1px solid #eaf0f8;scrollbar-width:thin;scrollbar-color:#d5dce7 transparent}
+.app-sidebar .sidebar-context{height:51px;padding:0 18px 0 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eef1f6;background:linear-gradient(150deg,#fff 15%,#f1f6ff 75%,#e6efff);color:#151c27;font-size:16px;font-weight:650;white-space:nowrap}
+.shell-collapse{border:0;background:none;color:#424e60;cursor:pointer;padding:5px;display:flex;align-items:center}
+.shell-collapse svg{height:18px;width:18px}
+.shell-side-list{padding:10px 0 16px}
+.app-sidebar .sidegroup{margin:0}
+.app-sidebar .sidegroup>summary,.shell-side-single{height:43px;display:flex;align-items:center;gap:8px;padding:0 18px 0 24px;border:0;width:100%;background:none;list-style:none;color:#293543;font-size:14px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.app-sidebar .sidegroup>summary::-webkit-details-marker{display:none}
+.app-sidebar .sidegroup>summary:after{content:'';width:5px;height:5px;flex-shrink:0;border:solid #b2b9c5;border-width:0 1.4px 1.4px 0;transform:rotate(45deg);margin-left:auto;margin-right:2px}
+.app-sidebar .sidegroup[open]>summary:after{transform:rotate(225deg);margin-top:5px}
+.app-sidebar .sidegroup>summary:hover,.shell-side-single:hover{background:#f7f9fe}
+.shell-side-icon{width:14px;height:16px;flex-shrink:0;color:#909aa8;display:inline-flex;align-items:center}
+.shell-side-icon svg{width:14px;height:16px;fill:currentColor;stroke:currentColor}
+.app-sidebar .sidegroup.current>summary,.app-sidebar .sidegroup.current>summary .shell-side-icon,.shell-side-single.active,.shell-side-single.active .shell-side-icon{color:#2874ff}
+.app-sidebar .sidegroup .nav{display:flex;align-items:center;width:calc(100% - 24px);margin:1px 12px;min-height:41px;height:auto;line-height:1.4;padding:10px 10px 10px 34px;border:0;border-radius:8px;background:none;text-align:left;color:#657184;font:14px 'Microsoft YaHei',sans-serif;white-space:nowrap;text-decoration:none;cursor:pointer}
+.app-sidebar .sidegroup .nav.active{background:#e6eeff;color:#2874ff;border:0;border-radius:8px;font-weight:400}
+.app-sidebar .sidegroup .nav:hover{background:#f0f5ff;color:#2874ff}
+.shell-new{font-size:9px;background:#ff7b14;border-radius:3px;padding:1px 4px;color:white;line-height:12px;margin-left:auto}
+body.shell-collapsed{--shell-sidebar:64px}
+body.shell-collapsed .original-logo{padding:9px;overflow:hidden}
+body.shell-collapsed .original-logo img{max-width:none;width:142px;object-fit:cover;object-position:left;height:36px;transform:translateX(48px)}
+body.shell-collapsed .sidebar-context{padding:0 18px;justify-content:center}
+body.shell-collapsed .sidebar-context>span,body.shell-collapsed .side-label,body.shell-collapsed .sidegroup>summary:after,body.shell-collapsed .sidegroup .nav,body.shell-collapsed .shell-new{display:none}
+body.shell-collapsed .app-sidebar .sidegroup>summary,body.shell-collapsed .shell-side-single{justify-content:center;padding:0}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid #78a6ff;outline-offset:-2px}
+@media(min-width:1750px){:root{--shell-sidebar:210px}.app-header .original-logo img{width:160px}.shell-topitem{max-width:142px}.shell-topbutton{font-size:15px}.shell-panorama{font-size:15px}.app-sidebar .sidegroup>summary,.shell-side-single{height:46px;font-size:15px}.app-sidebar .sidegroup .nav{min-height:44px;font-size:15px}}
+@media(max-width:1250px){.shell-header-tools{gap:10px;padding:0 12px}.shell-panorama{display:none}.shell-topbutton{padding:0 6px;font-size:13px}.shell-topitem{min-width:58px}.shell-topbutton{gap:5px}}
+@media(max-width:900px){:root{--shell-sidebar:166px}.shell-header-tools{gap:8px}.shell-tool.help{display:none}.app-header .original-logo img{width:128px}.app-header .original-logo{padding:10px 14px}.app-sidebar .sidegroup>summary,.shell-side-single{padding-left:18px}.app-sidebar .sidegroup .nav{padding-left:27px}.app-header .shell-topnav{overflow-x:auto}.shell-topitem{flex:none;min-width:80px}.shell-topdropdown{display:none!important}}
+@media(max-width:650px){:root{--shell-sidebar:56px}.shell-header-tools{display:none}.app-header .original-logo{display:none}.app-sidebar .sidebar-context{justify-content:center;padding:0}.app-sidebar .sidebar-context>span,.app-sidebar .side-label,.app-sidebar .sidegroup>summary:after,.app-sidebar .sidegroup .nav,.app-sidebar .shell-new{display:none}.app-sidebar .sidegroup>summary,.shell-side-single{padding:0;justify-content:center}.app-header .shell-topnav{width:100%}.shell-topitem{min-width:90px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}

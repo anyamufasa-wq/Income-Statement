@@ -11,6 +11,6 @@
 | 媒体利润报表 | profit-media.html |
 | 媒体政策 | media-policy.html |
 
-`assets/media-policy/xlsx.full.min.js` 为媒体政策 Excel 导入导出依赖，需一并上传。
+`assets/navigation.css` 和 `assets/navigation.js` 为共享导航样式与交互；`assets/media-policy/xlsx.full.min.js` 为媒体政策 Excel 导入导出依赖，均需一并上传。
 
 媒体政策数据保存在浏览器本地存储中，不会上传到 Git 或在不同用户间共享。页面数据为原型演示数据。
